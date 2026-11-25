@@ -1,9 +1,12 @@
+require('dotenv').config();
+
+
 const express = require("express");
 
 const app = express();
 
 app.get("/", (req, res) => {
-    res.send("Weather API App is running and this is a test commit");
+    res.send("Weather API App is running");
 });
 
 app.listen(3000, () => {
