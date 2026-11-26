@@ -1,5 +1,21 @@
-<%= city %>
-<%= temperature %> °C
-Humidity: <%= humidity %>%
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
 
-<%= weather %>
+    <div class="card">
+        <h1><%= city %></h1>
+
+        <h2>🌡️ <%= temperature %> °C</h2>
+
+        <p>💧 Humidity: <%= humidity %>%</p>
+
+        <p>☁️ <%= weather %></p>
+    </div>
+
+</body>
+</html>
