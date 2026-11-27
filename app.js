@@ -4,6 +4,8 @@ require('dotenv').config();
 const express = require("express");
 const axios = require("axios");
 const app = express();
+app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
     res.send("Weather API App is running");
@@ -18,12 +20,12 @@ app.get("/weather/:city", async (req, res) => {
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
         );
 
-        res.json({
-            city: response.data.name,
-            temperature: response.data.main.temp,
-            humidity: response.data.main.humidity,
-            weather: response.data.weather[0].description
-        });
+        res.render("weather", {
+    city: response.data.name,
+    temperature: response.data.main.temp,
+    humidity: response.data.main.humidity,
+    weather: response.data.weather[0].description
+});
     } catch (error) {
         console.log(error.response?.data);
         console.log(error.message);
